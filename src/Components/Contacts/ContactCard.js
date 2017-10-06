@@ -4,12 +4,12 @@ export default function ContactCard({contact, deleteContact}) {
   return (
     <div className="contentBox">
         <div className="boxHeader">
-          <p>{contact.name.first}</p>
-          <p>{contact.name.last}</p>
+          <div>{contact.name.first}</div>
+          <div>{contact.name.last}</div>
         </div>
         <div className="boxBody">
-          <p>{contact.phone}</p>
-          <p>{contact.email}</p>
+          <div>{contact.phone}</div>
+          <div>{contact.email}</div>
         </div>
       <div className="boxFooter">
         <div className="btnRow">

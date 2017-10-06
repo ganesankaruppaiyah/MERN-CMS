@@ -218,6 +218,7 @@ Link {
   .greenBtn:active, .greenBtn:focus {
     outline: none; }
 
+/*scss*/
 html {
   font-size: 16px; }
 
@@ -389,6 +390,7 @@ body {
 .ui.cards {
   display: flex;
   flex-flow: row wrap; }
+  .ui.cards .contentBox,
   .ui.cards .ui.card {
     background-color: rgba(105, 105, 105, 0);
     border: 1px rgba(105, 105, 105, 0.15) solid;
@@ -399,19 +401,40 @@ body {
     min-width: 320px;
     width: 30vw;
     font-size: 0.7em; }
+    .ui.cards .contentBox:hover,
     .ui.cards .ui.card:hover {
       background-color: transparent; }
+    .ui.cards .contentBox:active,
     .ui.cards .ui.card:active {
       box-shadow: inset 1px 1px 1px 1px rgba(255, 255, 255, 0);
       background-color: transparent; }
+    .ui.cards .contentBox:focus,
     .ui.cards .ui.card:focus {
       box-shadow: none;
       background-color: transparent;
       outline: none; }
+    .ui.cards .contentBox .boxHeader,
+    .ui.cards .contentBox .header,
+    .ui.cards .ui.card .boxHeader,
     .ui.cards .ui.card .header {
       font-size: 1.25em;
       color: #232323;
-      font-weight: bold; }
+      font-weight: bold;
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-start;
+      align-content: flex-start; }
+      .ui.cards .contentBox .boxHeader div,
+      .ui.cards .contentBox .header div,
+      .ui.cards .ui.card .boxHeader div,
+      .ui.cards .ui.card .header div {
+        margin: 0.2em; }
+    .ui.cards .contentBox .boxBody div,
+    .ui.cards .ui.card .boxBody div {
+      margin: 0.5em; }
+    .ui.cards .contentBox .boxFooter div,
+    .ui.cards .ui.card .boxFooter div {
+      margin: .75em 0; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: .3em; }

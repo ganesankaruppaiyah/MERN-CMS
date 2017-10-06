@@ -1,3 +1,5 @@
+/*scss*/
+
 html {
   font-size: 16px;
 }
@@ -87,6 +89,7 @@ $smmobile: "320px";
   display: flex;
   flex-flow: row wrap;
 
+  .contentBox,
   .ui.card {
     @include txtArea(transparentize($grey, .5));
     box-shadow: shadow(lighten($grey, 10%));
@@ -97,10 +100,30 @@ $smmobile: "320px";
     width: 30vw;
     font-size: 0.7em;
 
+    .boxHeader,
     .header {
       font-size: 1.25em;
       color: $black;
       font-weight: bold;
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-start;
+      align-content: flex-start;
+
+      div {
+        margin: 0.2em;
+      }
+    }
+
+    .boxBody {
+      div {
+        margin: 0.5em;
+      }
+    }
+    .boxFooter {
+      div {
+        margin: .75em 0;
+      }
     }
   }
 }
