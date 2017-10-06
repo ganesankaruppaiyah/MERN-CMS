@@ -1,0 +1,106 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: $r;
+  font-family: $f1;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  :after,
+  :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+.clearfix {
+  &:after,
+  &:before {
+    content: " ";
+  }
+}
+
+.alignright {
+  float: right;
+}
+
+.alignleft {
+  float: left;
+}
+
+.aligncenter {
+  margin: auto;
+  text-align: center;
+}
+$tablet: "1000px";
+$smtablet: "850px";
+$lgmobile: "768px";
+$medmobile: "480px";
+$smmobile: "320px";
+@mixin mq($media) {
+   @media screen and (max-width: $media){
+    @content;
+  }
+}
+@mixin mqmq($max, $min) {
+   @media screen and (max-width: $max) and (min-width: $min){
+    @content;
+  }
+}
+
+.wrapper {
+  width: 85vw;
+  min-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+}
+
+.btnRow,
+.menu {
+  display: flex;
+  flex-flow: row;
+
+  .menu-item {
+    @include btn($green, 1px $purple solid, transparentize($black, .65), 5px);
+    @include txtBtn($black, none, 600, .15em, .15em, $f1);
+    @include eqw(1,15);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .rowBtn {
+    @include txtBtn($black, none, 600, .15em, .15em, $f1);
+    text-align: center;
+    @include eqw(1,2);
+  }
+}
+
+.ui.cards {
+  display: flex;
+  flex-flow: row wrap;
+
+  .ui.card {
+    @include txtArea(transparentize($grey, .5));
+    box-shadow: shadow(lighten($grey, 10%));
+    border-radius: 15px;
+    margin: 0.25em;
+    padding: 0.35em;
+    min-width: 320px;
+    width: 30vw;
+    font-size: 0.7em;
+
+    .header {
+      font-size: 1.25em;
+      color: $black;
+      font-weight: bold;
+    }
+  }
+}

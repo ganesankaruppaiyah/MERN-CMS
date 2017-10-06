@@ -1,0 +1,42 @@
+
+
+h1,h2,h3,h4,h5,h6 {
+  margin: .3em;
+}
+
+h1, .h1Txt {
+  font-size: 2.15em;
+}
+
+h2, .h2Txt {
+  font-size: 1.85em;
+}
+
+h3, .h3Txt {
+  font-size: 1.65em;
+}
+
+h4, .h4Txt {
+  font-size: 1.5em;
+}
+
+h5, .h5Txt {
+  font-size: 1.25em;
+}
+
+h6, .h6Txt {
+  font-size: 1.15em;
+}
+
+p, .paraTxt {
+  margin: 1em;
+}
+
+blockquote, .blocqTxt {
+  margin-left: 3em;
+
+}
+
+hr {
+  box-shadow: doubleShadow($grey, .5em);
+}

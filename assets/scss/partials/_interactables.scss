@@ -1,0 +1,122 @@
+@mixin transition {
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.42, 0, 1, 1.43);
+}
+@mixin growfont($grow) {
+   @include transition;
+  font-size: #{$grow};
+
+  &:hover {
+    font-size: #{$grow*1.15};
+  }
+}
+@mixin btn($bgrclr, $bdr, $shclr, $bdrds) {
+  background-color: transparent;
+  border: $bdr;
+  box-shadow: none;
+  border-radius: $bdrds;
+  @include transition;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px $shclr;
+    background-color: transparentize(lighten($bgrclr, 25%), .5);
+  }
+
+  &:active {
+    box-shadow: inset 1px 1px 1px 1px $shclr;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+@mixin txtBtn($clr, $decoration, $weight, $padding, $margin, $fontfamily) {
+  color: $clr;
+  letter-spacing: 0.05em;
+  text-decoration: $decoration;
+  padding: $padding;
+  margin: $margin;
+  font-family: $fontfamily;
+  font-weight: $weight;
+}
+@mixin txtArea($clr) {
+  background-color: transparentize($clr, .85);
+  border: 1px transparentize($clr, .35) solid;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:active {
+    box-shadow: inset 1px 1px 1px 1px transparentize(lighten($clr, 65%), .5);
+    background-color: transparent;
+  }
+
+  &:focus {
+    box-shadow: none;
+    background-color: transparent;
+    outline: none;
+  }
+}
+
+Button,
+[role=button],
+a.button,
+button,
+input,
+Link {
+  @include btn(lighten($grey, 15%), solid $grey 1px, $grey, 5px);
+  cursor: pointer;
+  font-size:1em;
+  &[type=submit] {
+    @include txtBtn($black, none, 600, .25em, .15em, $f1);
+  }
+  &.boldBtn {
+    @include txtBtn($black, none, 600, .25em, .15em, $f1);
+  }
+  &.itaBtn {
+    @include txtBtn($black, italic, 400, .25em, .15em, $f1);
+  }
+  &.undBtn {
+    @include txtBtn($black, underline, 400, .25em, .15em, $f1);
+  }
+  &.BlocqBtn,
+  &.ParaBtn,
+  &.boldBtn,
+  &.h1Btn,
+  &.h2Btn,
+  &.h3Btn,
+  &.h4Btn,
+  &.itaBtn,
+  &.undBtn {
+    width: auto;
+    display: inline-flex;
+  }
+}
+
+.editBox,
+[type=text] {
+  @include txtArea(transparentize(lighten($blue, 25%), .35));
+  border: transparentize(lighten($blue, 5%), .05) solid 1px;
+
+  .editCtrl {
+    @include txtArea(transparentize(lighten($blue, 5%), .05));
+  }
+}
+
+.error {
+  color: $red;
+}
+
+.redBtn {
+  @include btn($red, 2px $orange solid, transparentize($black, .65), 3px)
+}
+
+.greenBtn {
+  @include btn($green, 2px moreblue($green, 30%) solid, transparentize($black, .65), 3px)
+}
