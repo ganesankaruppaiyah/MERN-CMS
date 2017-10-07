@@ -30,7 +30,7 @@ module.exports = function (app) {
         },
         message: '{VALUE} is not a valid international phone number!'
       }
-},
+    },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });

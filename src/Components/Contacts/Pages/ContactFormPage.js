@@ -4,6 +4,7 @@ import {SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
 import {newContact, saveContact, fetchContact, updateContact} from '../../../actions/ContactActions'
 import ContactForm from '../ContactForm';
+
 class ContactFormPage extends Component {
   state = {
     redirect: false

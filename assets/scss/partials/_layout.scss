@@ -68,7 +68,7 @@ $smmobile: "320px";
 .btnRow,
 .menu {
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
 
   .menu-item {
     @include btn($green, 1px $purple solid, transparentize($black, .65), 5px);
@@ -76,6 +76,7 @@ $smmobile: "320px";
     @include eqw(1,15);
     text-align: center;
     text-decoration: none;
+    min-width:200px;
   }
 
   .rowBtn {

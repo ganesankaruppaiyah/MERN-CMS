@@ -259,7 +259,7 @@ body {
 .btnRow,
 .menu {
   display: flex;
-  flex-flow: row; }
+  flex-flow: row wrap; }
   .btnRow .menu-item,
   .menu .menu-item {
     background-color: transparent;
@@ -276,7 +276,8 @@ body {
     font-family: courier, monotype;
     font-weight: 600;
     text-align: center;
-    text-decoration: none; }
+    text-decoration: none;
+    min-width: 200px; }
     .btnRow .menu-item:hover,
     .menu .menu-item:hover {
       box-shadow: 1px 1px 1px 1px rgba(35, 35, 35, 0.35);
@@ -295,77 +296,77 @@ body {
     .btnRow .menu-item:first-child:nth-last-child(1) ~ *,
     .menu .menu-item:first-child:nth-last-child(1),
     .menu .menu-item:first-child:nth-last-child(1) ~ * {
-      width: 100%; }
+      width: 95%; }
     .btnRow .menu-item:first-child:nth-last-child(2),
     .btnRow .menu-item:first-child:nth-last-child(2) ~ *,
     .menu .menu-item:first-child:nth-last-child(2),
     .menu .menu-item:first-child:nth-last-child(2) ~ * {
-      width: 50%; }
+      width: 47.5%; }
     .btnRow .menu-item:first-child:nth-last-child(3),
     .btnRow .menu-item:first-child:nth-last-child(3) ~ *,
     .menu .menu-item:first-child:nth-last-child(3),
     .menu .menu-item:first-child:nth-last-child(3) ~ * {
-      width: 33.33333%; }
+      width: 31.66667%; }
     .btnRow .menu-item:first-child:nth-last-child(4),
     .btnRow .menu-item:first-child:nth-last-child(4) ~ *,
     .menu .menu-item:first-child:nth-last-child(4),
     .menu .menu-item:first-child:nth-last-child(4) ~ * {
-      width: 25%; }
+      width: 23.75%; }
     .btnRow .menu-item:first-child:nth-last-child(5),
     .btnRow .menu-item:first-child:nth-last-child(5) ~ *,
     .menu .menu-item:first-child:nth-last-child(5),
     .menu .menu-item:first-child:nth-last-child(5) ~ * {
-      width: 20%; }
+      width: 19%; }
     .btnRow .menu-item:first-child:nth-last-child(6),
     .btnRow .menu-item:first-child:nth-last-child(6) ~ *,
     .menu .menu-item:first-child:nth-last-child(6),
     .menu .menu-item:first-child:nth-last-child(6) ~ * {
-      width: 16.66667%; }
+      width: 15.83333%; }
     .btnRow .menu-item:first-child:nth-last-child(7),
     .btnRow .menu-item:first-child:nth-last-child(7) ~ *,
     .menu .menu-item:first-child:nth-last-child(7),
     .menu .menu-item:first-child:nth-last-child(7) ~ * {
-      width: 14.28571%; }
+      width: 13.57143%; }
     .btnRow .menu-item:first-child:nth-last-child(8),
     .btnRow .menu-item:first-child:nth-last-child(8) ~ *,
     .menu .menu-item:first-child:nth-last-child(8),
     .menu .menu-item:first-child:nth-last-child(8) ~ * {
-      width: 12.5%; }
+      width: 11.875%; }
     .btnRow .menu-item:first-child:nth-last-child(9),
     .btnRow .menu-item:first-child:nth-last-child(9) ~ *,
     .menu .menu-item:first-child:nth-last-child(9),
     .menu .menu-item:first-child:nth-last-child(9) ~ * {
-      width: 11.11111%; }
+      width: 10.55556%; }
     .btnRow .menu-item:first-child:nth-last-child(10),
     .btnRow .menu-item:first-child:nth-last-child(10) ~ *,
     .menu .menu-item:first-child:nth-last-child(10),
     .menu .menu-item:first-child:nth-last-child(10) ~ * {
-      width: 10%; }
+      width: 9.5%; }
     .btnRow .menu-item:first-child:nth-last-child(11),
     .btnRow .menu-item:first-child:nth-last-child(11) ~ *,
     .menu .menu-item:first-child:nth-last-child(11),
     .menu .menu-item:first-child:nth-last-child(11) ~ * {
-      width: 9.09091%; }
+      width: 8.63636%; }
     .btnRow .menu-item:first-child:nth-last-child(12),
     .btnRow .menu-item:first-child:nth-last-child(12) ~ *,
     .menu .menu-item:first-child:nth-last-child(12),
     .menu .menu-item:first-child:nth-last-child(12) ~ * {
-      width: 8.33333%; }
+      width: 7.91667%; }
     .btnRow .menu-item:first-child:nth-last-child(13),
     .btnRow .menu-item:first-child:nth-last-child(13) ~ *,
     .menu .menu-item:first-child:nth-last-child(13),
     .menu .menu-item:first-child:nth-last-child(13) ~ * {
-      width: 7.69231%; }
+      width: 7.30769%; }
     .btnRow .menu-item:first-child:nth-last-child(14),
     .btnRow .menu-item:first-child:nth-last-child(14) ~ *,
     .menu .menu-item:first-child:nth-last-child(14),
     .menu .menu-item:first-child:nth-last-child(14) ~ * {
-      width: 7.14286%; }
+      width: 6.78571%; }
     .btnRow .menu-item:first-child:nth-last-child(15),
     .btnRow .menu-item:first-child:nth-last-child(15) ~ *,
     .menu .menu-item:first-child:nth-last-child(15),
     .menu .menu-item:first-child:nth-last-child(15) ~ * {
-      width: 6.66667%; }
+      width: 6.33333%; }
   .btnRow .rowBtn,
   .menu .rowBtn {
     color: #232323;
@@ -380,12 +381,12 @@ body {
     .btnRow .rowBtn:first-child:nth-last-child(1) ~ *,
     .menu .rowBtn:first-child:nth-last-child(1),
     .menu .rowBtn:first-child:nth-last-child(1) ~ * {
-      width: 100%; }
+      width: 95%; }
     .btnRow .rowBtn:first-child:nth-last-child(2),
     .btnRow .rowBtn:first-child:nth-last-child(2) ~ *,
     .menu .rowBtn:first-child:nth-last-child(2),
     .menu .rowBtn:first-child:nth-last-child(2) ~ * {
-      width: 50%; }
+      width: 47.5%; }
 
 .ui.cards {
   display: flex;
