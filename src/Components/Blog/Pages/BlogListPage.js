@@ -11,7 +11,7 @@ class BlogListPage extends Component {
         return (
             <div className="wrapper">
               <h1>Articles</h1>
-              <BlogList blogPosts={this.props.blogPosts} loading={this.props.loading} errors={this.props.errors}/>
+              <BlogList articles={this.props.articles} loading={this.props.loading} errors={this.props.errors}/>
             </div>
         );
     }
@@ -19,7 +19,7 @@ class BlogListPage extends Component {
 
 function mapStateToProps(state) {
   return{
-    blogPosts: state.blogPostStore.blogPosts,
+    articles: state.blogPostStore.articles,
     loading: state.blogPostStore.loading,
     errors: state.blogPostStore.errors
   }

@@ -1,19 +1,19 @@
 import React from 'react';
 import BlogSnippet from './BlogSnippet';
 
-export default function BlogList({blogPosts}){
-  const snippets = () => {
-    return blogPosts.map(blogPost => {
+export default function BlogList({articles}){
+  const list = () => {
+    return articles.map(article => {
       return (
         <BlogSnippet
-        key={blogPost._id}
-        blogPost={blogPost}/>
+        key={article._id}
+        article={article}/>
       )
     })
   }
   return (
     <div className="wrapper">
-      {snippets()}
+      {list()}
     </div>
   )
 }

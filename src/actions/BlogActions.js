@@ -1,5 +1,5 @@
 import {client} from './';
-const url = '/blog';
+const url = '/articles';
 export function fetchBlogPosts() {
   return dispatch => {
     dispatch({type: 'FETCH_BLOGPOSTS', payload: client.get(url)})
@@ -10,11 +10,11 @@ export function newBlogPost() {
     dispatch({type: 'NEW_BLOGPOST'})
   }
 }
-export function saveBlogPost(blogPost) {
+export function saveBlogPost(article) {
   return dispatch => {
     return dispatch({
       type: 'SAVE_BLOGPOST',
-      payload: client.post(url, blogPost)
+      payload: client.post(url, article)
     })
   }
 }
@@ -26,11 +26,11 @@ export function fetchBlogPost(_id) {
     })
   }
 }
-export function updateBlogPost(blogPost) {
+export function updateBlogPost(article) {
   return dispatch => {
     return dispatch({
       type: 'UPDATE_BLOGPOST',
-      payload: client.put(`${url}/${blogPost._id}`, blogPost)
+      payload: client.put(`${url}/${article._id}`, article)
     })
   }
 }

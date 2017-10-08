@@ -1,7 +1,7 @@
 const defaultState = {
-  blogPosts: [],
-  blogPost: {
-    title: {}
+  articles: [],
+  article: {
+    name: {}
   },
   loading: false,
   errors: {}
@@ -12,7 +12,7 @@ export default(state = defaultState, action = {}) => {
       {
         return {
           ...state,
-          blogPosts: action.payload.data.data,
+          articles: action.payload.data.data,
           loading: false,
           errors: {}
         }
@@ -39,9 +39,9 @@ export default(state = defaultState, action = {}) => {
       {
         return {
           ...state,
-          blogPost: {
-            title: {}
-          }
+            article: {
+              name: {}
+            }
         }
       }
     case 'SAVE_BLOGPOST_PENDING':
@@ -55,8 +55,8 @@ export default(state = defaultState, action = {}) => {
       {
         return {
           ...state,
-          blogPosts: [
-            ...state.blogPosts,
+          articles: [
+            ...state.articles,
             action.payload.data
           ],
           errors: {},
@@ -67,13 +67,13 @@ export default(state = defaultState, action = {}) => {
       {
         const data = action.payload.response.data;
         // convert feathers error formatting to match client-side error formatting
-        const {"title": title, "body.snippet": teaser, "body.bulk": bulk} = data.errors;
+        const {title, "content.start": start, "content.full": full} = data.errors;
         const errors = {
           global: data.message,
           title,
-          body: {
-            teaser,
-            bulk
+          content: {
+            start,
+            full
           }
         };
         return {
@@ -87,7 +87,7 @@ export default(state = defaultState, action = {}) => {
         return {
           ...state,
           loading: true,
-          blogPost: {
+          article: {
             name: {}
           }
         }
@@ -96,7 +96,7 @@ export default(state = defaultState, action = {}) => {
       {
         return {
           ...state,
-          blogPost: action.payload.data,
+          article: action.payload.data,
           errors: {},
           loading: false
         }
@@ -110,11 +110,11 @@ export default(state = defaultState, action = {}) => {
       }
     case 'UPDATE_BLOGPOST_FULFILLED':
       {
-        const blogPost = action.payload.data;
+        const article = action.payload.data;
         return {
           ...state,
-          blogPosts: state.blogPosts.map(item => item._id === blogPost._id
-            ? blogPost
+          articles: state.articles.map(item => item._id === article._id
+            ? article
             : item),
           errors: {},
           loading: false
@@ -123,13 +123,13 @@ export default(state = defaultState, action = {}) => {
     case 'UPDATE_BLOGPOST_REJECTED':
       {
         const data = action.payload.response.data;
-        const {"blogPost.title": title, "blogPost.body.snippet": teaser, "blogPost.body.bulk": bulk} = data.errors;
+        const {title, "content.start": start, "content.full": full} = data.errors;
         const errors = {
           global: data.message,
           title: title,
-          body: {
-            teaser,
-            bulk
+          content: {
+            start,
+            full
           }
         };
         return {
@@ -143,7 +143,7 @@ export default(state = defaultState, action = {}) => {
         const _id = action.payload.data._id;
         return {
           ...state,
-          blogPosts: state.blogPosts.filter(item => item._id !== _id)
+          articles: state.articles.filter(item => item._id !== _id)
         }
       }
     default:

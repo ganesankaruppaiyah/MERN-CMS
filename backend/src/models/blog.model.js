@@ -2,21 +2,23 @@
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
+require('mongoose');
+
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
-  const {Schema} = mongooseClient;
-  const blogPost = new Schema({
+  const article = new mongooseClient.Schema({
     title: {
       type: String,
       required: true
     },
-    body: {
-      snippet: {
+    content: {
+      start: {
         type: String,
         required: true
       },
-      bulk: {
-        type: String
+      full: {
+        type: String,
+        required: false
       }
     },
     createdAt: {
@@ -28,5 +30,5 @@ module.exports = function(app) {
       default: Date.now
     }
   });
-  return mongooseClient.model('blogPost', blogPost);
+  return mongooseClient.model('article', article);
 };

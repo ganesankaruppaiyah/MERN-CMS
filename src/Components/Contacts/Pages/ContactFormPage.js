@@ -32,7 +32,7 @@ class ContactFormPage extends Component {
     return (
       <div className="wrapper">
         {this.state.redirect
-          ? <Redirect to="/"/>
+          ? <Redirect to="/contacts"/>
           : <ContactForm contact={this.props.contact} loading={this.props.loading} onSubmit={this.submit}/>}
       </div>
     )

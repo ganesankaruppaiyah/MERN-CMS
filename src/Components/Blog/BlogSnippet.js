@@ -1,16 +1,13 @@
 import React from 'react';
-export default function BlogSnippet({blogPost}) {
+export default function BlogSnippet({article}) {
   return (
-    <div className="blogPost">
-      <h1 className="blogTitle">
-        {blogPost.title}
-      </h1>
-      <div className="blogBody">
-        blog
-      </div>
+    <div className="article">
+        <div>{article.title}</div>
+        <div>{article.content.start}</div>
+        <div>{article.content.full}</div>
     </div>
   )
 }
 BlogSnippet.propTypes = {
-  blogPost: React.PropTypes.object.isRequired
+  article: React.PropTypes.object.isRequired
 }

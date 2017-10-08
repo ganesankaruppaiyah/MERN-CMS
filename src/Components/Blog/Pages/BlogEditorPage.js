@@ -17,13 +17,13 @@ class BlogEditorPage extends Component {
       this.props.newBlogPost();
     }
   }
-  submit = (blogPost) => {
-    if (!blogPost._id) {
-      return this.props.saveBlogPost(blogPost).then(response => this.this.setState({redirect: true})).catch(err => {
+  submit = (article) => {
+    if (!article._id) {
+      return this.props.saveBlogPost(article).then(response => this.this.setState({redirect: true})).catch(err => {
         throw new SubmissionError(this.props.errors)
       })
     } else {
-      return this.props.updateBlogPost(blogPost).then(response => this.this.setState({redirect: true})).catch(err => {
+      return this.props.updateBlogPost(article).then(response => this.this.setState({redirect: true})).catch(err => {
         throw new SubmissionError(this.props.errors)
       })
     }
@@ -32,13 +32,13 @@ class BlogEditorPage extends Component {
     return (
       <div className="wrapper">
       {this.state.redirect
-        ? <Redirect to="/"/>
-        : <BlogEditor blogPost={this.props.blogPost} loading={this.props.loading} onSubmit={this.submit}/>}
+        ? <Redirect to="/article"/>
+        : <BlogEditor article={this.props.article} loading={this.props.loading} onSubmit={this.submit}/>}
       </div>
     )
   }
 }
 function mapStateToProps(state) {
-  return {blogPost: state.blogPostStore.blogPost, errors: state.blogPostStore.errors}
+  return {article: state.blogPostStore.article, errors: state.blogPostStore.errors}
 }
 export default connect(mapStateToProps, {newBlogPost, saveBlogPost, fetchBlogPost, updateBlogPost})(BlogEditorPage);

@@ -10,16 +10,16 @@ module.exports = function () {
   const paginate = app.get('paginate');
 
   const options = {
-    name: 'blogPost',
+    name: 'article',
     Model,
     paginate
   };
 
   // Initialize our service with any options it requires
-  app.use('/blog', createService(options));
+  app.use('/articles', createService(options));
 
   // Get our initialized service so that we can register hooks and filters
-  const service = app.service('blog');
+  const service = app.service('articles');
 
   service.hooks(hooks);
 

@@ -11,18 +11,13 @@ const validate = (values) => {
       message: 'Title Required'
     }
   }
-  if (!values.body.snippet) {
-    errors.body.snippet = {
-      message: 'introductory paragraph required'
-    }
-  }
   return errors;
 }
 class BlogEditor extends Component {
   componentWillReceiveProps = (nextProps) => { //async load
-    const {blogPost} = nextProps;
-    if (blogPost._id !== this.props.blogPost._id) {
-      this.props.initialize(blogPost)
+    const {article} = nextProps;
+    if (article._id !== this.props.article._id) {
+      this.props.initialize(article)
     }
   }
   renderField = ({
@@ -42,26 +37,24 @@ class BlogEditor extends Component {
     </Form.Field>
   )
   render() {
-    const {handleSubmit, pristine, submitting, loading, blogPost} = this.props;
+    const {handleSubmit, pristine, submitting, loading, article} = this.props;
     return (
       <div className="wrapper">
-        <h1>{blogPost._id
-            ? 'Edit Contact'
-            : 'Add New Contact'}</h1>
+        <h1>{article._id
+            ? 'Edit Article'
+            : 'Add New Article'}</h1>
         <Form onSubmit={handleSubmit} loading={loading}>
          <h2 className="blogTitle">
           <Field name="title" type="text" component={this.renderField} label="Title"/>
          </h2>
          <div className="blogBody">
-          <Field name="body.snippet" className="teaser" type="text" component={this.renderField} label="teaser"/>
-          <Field name="body.bulk" type="text" component={this.renderField}/>
+          <Field name="content.start" className="teaser" type="textarea" component={this.renderField} label="teaser"/>
+          <Field name="content.full" type="textarea" component={this.renderField}/>
+          <button className="greenBtn" type='submit' disabled={pristine || submitting}>Save</button>
          </div>
         </Form>
       </div>
     )
   }
 }
-export default reduxForm({
-  form: 'blogPost',
-  validate
-})(BlogEditor);
+export default reduxForm({form: 'article'})(BlogEditor)
