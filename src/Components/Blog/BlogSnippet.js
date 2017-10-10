@@ -1,13 +1,29 @@
 import React from 'react';
-export default function BlogSnippet({article}) {
+import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
+import BlogPost from './BlogPost';
+
+export default function BlogSnippet({article, deleteBlogPost}) {
   return (
     <div className="article">
-        <div>{article.title}</div>
-        <div>{article.content.start}</div>
-        <div>{article.content.full}</div>
+            <div className="articleHeader">
+              <h2>{article.title}</h2>
+            </div>
+            <div className="articleBody">
+              <p>
+              <span>{article.content.start}</span>
+              <span>{article.content.full}</span>
+              </p>
+            </div>
+          <div className="articleFooter">
+            <div className="btnRow">
+              <Link to={`/articles/edit/${article._id}`} className="rowBtn greenBtn">Edit</Link>
+              <button className="rowBtn redBtn" onClick={() => deleteBlogPost(article._id)}>Delete</button>
+            </div>
+          </div>
     </div>
   )
 }
 BlogSnippet.propTypes = {
-  article: React.PropTypes.object.isRequired
+  article: React.PropTypes.object.isRequired,
 }

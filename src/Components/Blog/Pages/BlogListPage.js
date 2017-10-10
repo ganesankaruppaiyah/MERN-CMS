@@ -1,7 +1,7 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import BlogList from '../BlogList';
-import {fetchBlogPosts} from '../../../actions/BlogActions'
+import {fetchBlogPosts, deleteBlogPost} from '../../../actions/BlogActions'
 
 class BlogListPage extends Component {
     componentDidMount() {
@@ -11,7 +11,7 @@ class BlogListPage extends Component {
         return (
             <div className="wrapper">
               <h1>Articles</h1>
-              <BlogList articles={this.props.articles} loading={this.props.loading} errors={this.props.errors}/>
+              <BlogList articles={this.props.articles} loading={this.props.loading} errors={this.props.errors} deleteBlogPost={this.props.deleteBlogPost} />
             </div>
         );
     }
@@ -24,4 +24,4 @@ function mapStateToProps(state) {
     errors: state.blogPostStore.errors
   }
 }
-export default connect(mapStateToProps, {fetchBlogPosts})(BlogListPage);
+export default connect(mapStateToProps, {fetchBlogPosts, deleteBlogPost})(BlogListPage);

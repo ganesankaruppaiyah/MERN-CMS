@@ -5,7 +5,7 @@ import ContactFormPage from './Components/Contacts/Pages/ContactFormPage';
 import ContactListPage from './Components/Contacts/Pages/ContactListPage';
 import HomePage from './HomePage';
 import BlogListPage from './Components/Blog/Pages/BlogListPage';
-import BlogEditorPage from './Components/Blog/Pages/BlogEditorPage';
+import BlogPostPage from './Components/Blog/Pages/BlogPostPage';
 
 class App extends Component {
   render() {
@@ -30,8 +30,8 @@ class App extends Component {
         </div>
         <Route exact path="/" component={HomePage}/>
         <Route path="/articles" component={BlogListPage}/>
-        <Route path="/articles/new" component={BlogEditorPage}/>
-        <Route path="/articles/edit/:_id" component={BlogEditorPage}/>
+        <Route path="/articles/new" component={BlogPostPage}/>
+        <Route path="/articles/edit/:_id" component={BlogPostPage}/>
         <Route path="/contacts" component={ContactListPage}/>
         <Route path="/contacts/new" component={ContactFormPage}/>
         <Route path="/contacts/edit/:_id" component={ContactFormPage}/>

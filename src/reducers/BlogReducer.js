@@ -66,7 +66,6 @@ export default(state = defaultState, action = {}) => {
     case 'SAVE_BLOGPOST_REJECTED':
       {
         const data = action.payload.response.data;
-        // convert feathers error formatting to match client-side error formatting
         const {title, "content.start": start, "content.full": full} = data.errors;
         const errors = {
           global: data.message,

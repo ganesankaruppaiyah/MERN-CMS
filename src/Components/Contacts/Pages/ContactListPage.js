@@ -17,6 +17,10 @@ class ContactListPage extends Component {
 }
 // Make contacts  array available in  props
 function mapStateToProps(state) {
-  return {contacts: state.contactStore.contacts, loading: state.contactStore.loading, errors: state.contactStore.errors}
+  return {
+    contacts: state.contactStore.contacts,
+    loading: state.contactStore.loading,
+    errors: state.contactStore.errors
+  }
 }
 export default connect(mapStateToProps, {fetchContacts, deleteContact})(ContactListPage);

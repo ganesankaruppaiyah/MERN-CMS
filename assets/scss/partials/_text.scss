@@ -1,31 +1,38 @@
 
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,textarea,input {
   margin: .3em;
+  font-family: $f1;
 }
 
-h1, .h1Txt {
-  font-size: 2.15em;
+h1, .h1Txt, h1 textarea, h1 input {
+  font: 2.15rem $f1;
+  display: block;
 }
 
-h2, .h2Txt {
-  font-size: 1.85em;
+h2, .h2Txt, h2 textarea, h2 input {
+  font: 1.85rem $f1;
+  display: block;
 }
 
-h3, .h3Txt {
-  font-size: 1.65em;
+h3, .h3Txt, h3 textarea, h3 input {
+  font: 1.65rem $f1;
+  display: block;
 }
 
-h4, .h4Txt {
-  font-size: 1.5em;
+h4, .h4Txt, h4 textarea, h4 input {
+  font: 1.5rem $f1;
+  display: block;
 }
 
-h5, .h5Txt {
-  font-size: 1.25em;
+h5, .h5Txt, h5 textarea, h5 input {
+  font: 1.25rem $f1;
+  display: block;
 }
 
-h6, .h6Txt {
-  font-size: 1.15em;
+h6, .h6Txt, h6 textarea, h6 input {
+  font: 1.15rem $f1;
+  display: block;
 }
 
 p, .paraTxt {
