@@ -8,6 +8,8 @@ h1,h2,h3,h4,h5,h6,textarea,input {
 h1, .h1Txt, h1 textarea, h1 input {
   font: 2.15rem $f1;
   display: block;
+  border-bottom: $blue solid 2px;
+  font-weight: 800;
 }
 
 h2, .h2Txt, h2 textarea, h2 input {

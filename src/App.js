@@ -29,12 +29,12 @@ class App extends Component {
           </NavLink>
         </div>
         <Route exact path="/" component={HomePage}/>
-        <Route path="/articles" component={BlogListPage}/>
-        <Route path="/articles/new" component={BlogPostPage}/>
-        <Route path="/articles/edit/:_id" component={BlogPostPage}/>
-        <Route path="/contacts" component={ContactListPage}/>
-        <Route path="/contacts/new" component={ContactFormPage}/>
-        <Route path="/contacts/edit/:_id" component={ContactFormPage}/>
+        <Route exact path="/articles" component={BlogListPage}/>
+        <Route exact path="/articles/new" component={BlogPostPage}/>
+        <Route exact path="/articles/edit/:_id" component={BlogPostPage}/>
+        <Route exact path="/contacts" component={ContactListPage}/>
+        <Route exact path="/contacts/new" component={ContactFormPage}/>
+        <Route exact path="/contacts/edit/:_id" component={ContactFormPage}/>
       </Container>
     );
   }

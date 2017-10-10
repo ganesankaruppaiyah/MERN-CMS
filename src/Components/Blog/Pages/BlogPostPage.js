@@ -19,11 +19,15 @@ class BlogPostPage extends Component {
   }
   submit = (article) => {
     if (!article._id) {
-      return this.props.saveBlogPost(article).then(response => this.this.setState({redirect: true})).catch(err => {
+      return this.props.saveBlogPost(article).then(
+        response => this.setState({
+          redirect: true
+        })
+      ).catch(err => {
         throw new SubmissionError(this.props.errors)
       })
     } else {
-      return this.props.updateBlogPost(article).then(response => this.this.setState({redirect: true})).catch(err => {
+      return this.props.updateBlogPost(article).then(response => this.setState({redirect: true})).catch(err => {
         throw new SubmissionError(this.props.errors)
       })
     }
@@ -31,9 +35,9 @@ class BlogPostPage extends Component {
   render() {
     return (
       <div className="wrapper">
-      {this.state.redirect
-        ? <Redirect to="/article"/>
-        : <BlogPost article={this.props.article} loading={this.props.loading} onSubmit={this.submit}/>}
+      {this.state.redirect ?
+        <Redirect to="/articles"/> :
+        <BlogPost article={this.props.article} loading={this.props.loading} onSubmit={this.submit}/>}
       </div>
     )
   }

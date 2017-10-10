@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Form} from 'semantic-ui-react';
 import classnames from 'classnames';
+import {Editor, EditorState, RichUtils} from 'draft-js';
 const validate = (values) => {
   const errors = {
-    title: {}
+    name: {}
   };
   if (!values.title) {
     errors.title = {
@@ -36,7 +37,7 @@ class BlogPost extends Component {
       error: touched && error
     })}>
       <label>{header}</label>
-      <textarea rows={rows} cols={cols} {...input} placeholder={label} type={type}/> {touched && error && <span className="error">{error.message}</span>}
+      <textarea {...input} rows={rows} cols={cols} placeholder={label} type={type}/> {touched && error && <span className="error">{error.message}</span>}
     </Form.Field>
   )
   render() {
@@ -46,18 +47,18 @@ class BlogPost extends Component {
         <h1>{article._id
             ? 'Edit Article'
             : 'Add New Article'}</h1>
-        <Form onSubmit={handleSubmit} loading={loading}>
-          <h2 className="blogTitle">
-            <Field name="title" rows="1" header="title" type="text" component={this.renderField} label="Title"/>
-          </h2>
-          <div className="blogBody">
-            <Field rows="4" cols="50" name="content.start" className="teaser" type="textarea" component={this.renderField} label="teaser"/>
-            <Field rows="4" cols="50" name="content.full" className="teaser" type="textarea" component={this.renderField}/>
+        <div className="article">
+          <Form onSubmit={handleSubmit} loading={loading}>
+            <h2 className="blogTitle">
+              <Field name="title" rows="1" header="title" type="text" component={this.renderField} label="Title"/>
+            </h2>
+            <Field rows="4" cols="50" name="content.start" className="teaser" type="text" component={this.renderField} label="teaser"/>
+            <Field rows="4" cols="50" name="content.full" className="teaser" type="text" component={this.renderField}/>
             <button className="greenBtn" type='submit' disabled={pristine || submitting}>Save</button>
-          </div>
-        </Form>
+          </Form>
+        </div>
       </div>
     )
   }
 }
-export default reduxForm({form: 'article'})(BlogPost)
+export default reduxForm({form: 'article', validate})(BlogPost)

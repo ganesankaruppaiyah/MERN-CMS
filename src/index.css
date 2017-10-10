@@ -255,6 +255,15 @@ body {
   margin: 0 auto;
   display: flex;
   flex-flow: column; }
+  .wrapper .article {
+    width: 75%;
+    margin: 0 auto; }
+
+.menu {
+  justify-content: space-between; }
+
+.btnRow {
+  justify-content: flex-end; }
 
 .btnRow,
 .menu {
@@ -297,77 +306,77 @@ body {
     .btnRow .menu-item:first-child:nth-last-child(1) ~ *,
     .menu .menu-item:first-child:nth-last-child(1),
     .menu .menu-item:first-child:nth-last-child(1) ~ * {
-      width: 100%; }
+      width: 95%; }
     .btnRow .menu-item:first-child:nth-last-child(2),
     .btnRow .menu-item:first-child:nth-last-child(2) ~ *,
     .menu .menu-item:first-child:nth-last-child(2),
     .menu .menu-item:first-child:nth-last-child(2) ~ * {
-      width: 50%; }
+      width: 47.5%; }
     .btnRow .menu-item:first-child:nth-last-child(3),
     .btnRow .menu-item:first-child:nth-last-child(3) ~ *,
     .menu .menu-item:first-child:nth-last-child(3),
     .menu .menu-item:first-child:nth-last-child(3) ~ * {
-      width: 33.33333%; }
+      width: 31.66667%; }
     .btnRow .menu-item:first-child:nth-last-child(4),
     .btnRow .menu-item:first-child:nth-last-child(4) ~ *,
     .menu .menu-item:first-child:nth-last-child(4),
     .menu .menu-item:first-child:nth-last-child(4) ~ * {
-      width: 25%; }
+      width: 23.75%; }
     .btnRow .menu-item:first-child:nth-last-child(5),
     .btnRow .menu-item:first-child:nth-last-child(5) ~ *,
     .menu .menu-item:first-child:nth-last-child(5),
     .menu .menu-item:first-child:nth-last-child(5) ~ * {
-      width: 20%; }
+      width: 19%; }
     .btnRow .menu-item:first-child:nth-last-child(6),
     .btnRow .menu-item:first-child:nth-last-child(6) ~ *,
     .menu .menu-item:first-child:nth-last-child(6),
     .menu .menu-item:first-child:nth-last-child(6) ~ * {
-      width: 16.66667%; }
+      width: 15.83333%; }
     .btnRow .menu-item:first-child:nth-last-child(7),
     .btnRow .menu-item:first-child:nth-last-child(7) ~ *,
     .menu .menu-item:first-child:nth-last-child(7),
     .menu .menu-item:first-child:nth-last-child(7) ~ * {
-      width: 14.28571%; }
+      width: 13.57143%; }
     .btnRow .menu-item:first-child:nth-last-child(8),
     .btnRow .menu-item:first-child:nth-last-child(8) ~ *,
     .menu .menu-item:first-child:nth-last-child(8),
     .menu .menu-item:first-child:nth-last-child(8) ~ * {
-      width: 12.5%; }
+      width: 11.875%; }
     .btnRow .menu-item:first-child:nth-last-child(9),
     .btnRow .menu-item:first-child:nth-last-child(9) ~ *,
     .menu .menu-item:first-child:nth-last-child(9),
     .menu .menu-item:first-child:nth-last-child(9) ~ * {
-      width: 11.11111%; }
+      width: 10.55556%; }
     .btnRow .menu-item:first-child:nth-last-child(10),
     .btnRow .menu-item:first-child:nth-last-child(10) ~ *,
     .menu .menu-item:first-child:nth-last-child(10),
     .menu .menu-item:first-child:nth-last-child(10) ~ * {
-      width: 10%; }
+      width: 9.5%; }
     .btnRow .menu-item:first-child:nth-last-child(11),
     .btnRow .menu-item:first-child:nth-last-child(11) ~ *,
     .menu .menu-item:first-child:nth-last-child(11),
     .menu .menu-item:first-child:nth-last-child(11) ~ * {
-      width: 9.09091%; }
+      width: 8.63636%; }
     .btnRow .menu-item:first-child:nth-last-child(12),
     .btnRow .menu-item:first-child:nth-last-child(12) ~ *,
     .menu .menu-item:first-child:nth-last-child(12),
     .menu .menu-item:first-child:nth-last-child(12) ~ * {
-      width: 8.33333%; }
+      width: 7.91667%; }
     .btnRow .menu-item:first-child:nth-last-child(13),
     .btnRow .menu-item:first-child:nth-last-child(13) ~ *,
     .menu .menu-item:first-child:nth-last-child(13),
     .menu .menu-item:first-child:nth-last-child(13) ~ * {
-      width: 7.69231%; }
+      width: 7.30769%; }
     .btnRow .menu-item:first-child:nth-last-child(14),
     .btnRow .menu-item:first-child:nth-last-child(14) ~ *,
     .menu .menu-item:first-child:nth-last-child(14),
     .menu .menu-item:first-child:nth-last-child(14) ~ * {
-      width: 7.14286%; }
+      width: 6.78571%; }
     .btnRow .menu-item:first-child:nth-last-child(15),
     .btnRow .menu-item:first-child:nth-last-child(15) ~ *,
     .menu .menu-item:first-child:nth-last-child(15),
     .menu .menu-item:first-child:nth-last-child(15) ~ * {
-      width: 6.66667%; }
+      width: 6.33333%; }
   .btnRow .rowBtn,
   .menu .rowBtn {
     color: #232323;
@@ -382,61 +391,75 @@ body {
     .btnRow .rowBtn:first-child:nth-last-child(1) ~ *,
     .menu .rowBtn:first-child:nth-last-child(1),
     .menu .rowBtn:first-child:nth-last-child(1) ~ * {
-      width: 100%; }
+      width: 25%; }
     .btnRow .rowBtn:first-child:nth-last-child(2),
     .btnRow .rowBtn:first-child:nth-last-child(2) ~ *,
     .menu .rowBtn:first-child:nth-last-child(2),
     .menu .rowBtn:first-child:nth-last-child(2) ~ * {
-      width: 50%; }
+      width: 12.5%; }
+    .btnRow .rowBtn:first-child:nth-last-child(3),
+    .btnRow .rowBtn:first-child:nth-last-child(3) ~ *,
+    .menu .rowBtn:first-child:nth-last-child(3),
+    .menu .rowBtn:first-child:nth-last-child(3) ~ * {
+      width: 8.33333%; }
+    .btnRow .rowBtn:first-child:nth-last-child(4),
+    .btnRow .rowBtn:first-child:nth-last-child(4) ~ *,
+    .menu .rowBtn:first-child:nth-last-child(4),
+    .menu .rowBtn:first-child:nth-last-child(4) ~ * {
+      width: 6.25%; }
+    .btnRow .rowBtn:first-child:nth-last-child(5),
+    .btnRow .rowBtn:first-child:nth-last-child(5) ~ *,
+    .menu .rowBtn:first-child:nth-last-child(5),
+    .menu .rowBtn:first-child:nth-last-child(5) ~ * {
+      width: 5%; }
 
 .ui.cards {
   display: flex;
   flex-flow: row wrap; }
-  .ui.cards .contentBox,
-  .ui.cards .ui.card {
-    background-color: rgba(105, 105, 105, 0);
-    border: 1px rgba(105, 105, 105, 0.15) solid;
-    box-shadow: -0.1em 0.1em 2px #838383;
-    border-radius: 15px;
-    margin: 0.25em;
-    padding: 0.35em;
-    min-width: 320px;
-    width: 30vw;
-    font-size: 0.7em; }
-    .ui.cards .contentBox:hover,
-    .ui.cards .ui.card:hover {
-      background-color: transparent; }
-    .ui.cards .contentBox:active,
-    .ui.cards .ui.card:active {
-      box-shadow: inset 1px 1px 1px 1px rgba(255, 255, 255, 0);
-      background-color: transparent; }
-    .ui.cards .contentBox:focus,
-    .ui.cards .ui.card:focus {
-      box-shadow: none;
-      background-color: transparent;
-      outline: none; }
-    .ui.cards .contentBox .boxHeader,
-    .ui.cards .contentBox .header,
-    .ui.cards .ui.card .boxHeader,
-    .ui.cards .ui.card .header {
-      font-size: 1.25em;
-      color: #232323;
-      font-weight: bold;
-      display: flex;
-      flex-flow: row;
-      justify-content: flex-start;
-      align-content: flex-start; }
-      .ui.cards .contentBox .boxHeader div,
-      .ui.cards .contentBox .header div,
-      .ui.cards .ui.card .boxHeader div,
-      .ui.cards .ui.card .header div {
-        margin: 0.2em; }
-    .ui.cards .contentBox .boxBody div,
-    .ui.cards .ui.card .boxBody div {
-      margin: 0.5em; }
-    .ui.cards .contentBox .boxFooter div,
-    .ui.cards .ui.card .boxFooter div {
-      margin: .75em 0; }
+
+.contentBox,
+.ui.card {
+  background-color: rgba(105, 105, 105, 0);
+  border: 1px rgba(105, 105, 105, 0.15) solid;
+  box-shadow: -0.1em 0.1em 2px #838383;
+  border-radius: 15px;
+  margin: 0.25em;
+  padding: 0.35em;
+  min-width: 320px;
+  width: 30vw;
+  font-size: 0.7em; }
+  .contentBox:hover,
+  .ui.card:hover {
+    background-color: transparent; }
+  .contentBox:active,
+  .ui.card:active {
+    box-shadow: inset 1px 1px 1px 1px rgba(255, 255, 255, 0);
+    background-color: transparent; }
+  .contentBox:focus,
+  .ui.card:focus {
+    box-shadow: none;
+    background-color: transparent;
+    outline: none; }
+  .contentBox .boxHeader,
+  .contentBox .header,
+  .ui.card .boxHeader,
+  .ui.card .header {
+    font-size: 1.25em;
+    color: #232323;
+    font-weight: bold;
+    display: flex;
+    flex-flow: row; }
+    .contentBox .boxHeader div,
+    .contentBox .header div,
+    .ui.card .boxHeader div,
+    .ui.card .header div {
+      margin: 0.2em; }
+  .contentBox .boxBody div,
+  .ui.card .boxBody div {
+    margin: 0.5em; }
+  .contentBox .boxFooter div,
+  .ui.card .boxFooter div {
+    margin: 0.75em 0; }
 
 h1, h2, h3, h4, h5, h6, textarea, input {
   margin: .3em;
@@ -444,7 +467,9 @@ h1, h2, h3, h4, h5, h6, textarea, input {
 
 h1, .h1Txt, h1 textarea, h1 input {
   font: 2.15rem courier, monotype;
-  display: block; }
+  display: block;
+  border-bottom: #566896 solid 2px;
+  font-weight: 800; }
 
 h2, .h2Txt, h2 textarea, h2 input {
   font: 1.85rem courier, monotype;

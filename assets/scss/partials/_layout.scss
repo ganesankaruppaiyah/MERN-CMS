@@ -1,5 +1,4 @@
 /*scss*/
-
 html {
   font-size: 16px;
 }
@@ -63,6 +62,19 @@ $smmobile: "320px";
   margin: 0 auto;
   display: flex;
   flex-flow: column;
+
+  .article {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+.menu {
+  justify-content: space-between;
+}
+
+.btnRow {
+  justify-content: flex-end;
 }
 
 .btnRow,
@@ -76,56 +88,55 @@ $smmobile: "320px";
     @include eqw(1,15);
     text-align: center;
     text-decoration: none;
-    min-width:200px;
-    max-width:275px;
+    min-width: 200px;
+    max-width: 275px;
   }
 
   .rowBtn {
     @include txtBtn($black, none, 600, .15em, .15em, $f1);
     text-align: center;
-    @include eqw(1,2);
+    @include eqwsm(1,5);
   }
 }
 
 .ui.cards {
   display: flex;
   flex-flow: row wrap;
+}
 
-  .contentBox,
-  .ui.card {
-    @include txtArea(transparentize($grey, .5));
-    box-shadow: shadow(lighten($grey, 10%));
-    border-radius: 15px;
-    margin: 0.25em;
-    padding: 0.35em;
-    min-width: 320px;
-    width: 30vw;
-    font-size: 0.7em;
+.contentBox,
+.ui.card {
+  @include txtArea(transparentize($grey, .5));
+  box-shadow: shadow(lighten($grey, 10%));
+  border-radius: 15px;
+  margin: 0.25em;
+  padding: 0.35em;
+  min-width: 320px;
+  width: 30vw;
+  font-size: 0.7em;
 
-    .boxHeader,
-    .header {
-      font-size: 1.25em;
-      color: $black;
-      font-weight: bold;
-      display: flex;
-      flex-flow: row;
-      justify-content: flex-start;
-      align-content: flex-start;
+  .boxHeader,
+  .header {
+    font-size: 1.25em;
+    color: $black;
+    font-weight: bold;
+    display: flex;
+    flex-flow: row;
 
-      div {
-        margin: 0.2em;
-      }
+    div {
+      margin: 0.2em;
     }
+  }
 
-    .boxBody {
-      div {
-        margin: 0.5em;
-      }
+  .boxBody {
+    div {
+      margin: 0.5em;
     }
-    .boxFooter {
-      div {
-        margin: .75em 0;
-      }
+  }
+
+  .boxFooter {
+    div {
+      margin: 0.75em 0;
     }
   }
 }
