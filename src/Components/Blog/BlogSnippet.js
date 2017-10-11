@@ -5,12 +5,12 @@ export default function BlogSnippet({article, deleteBlogPost}) {
   return (
     <div className="article">
       <div className="articleHeader">
-        <h2>{article.title}</h2>
+        <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2>
       </div>
       <div className="articleBody">
         <p>
-          <span>{article.content.start}</span>
-          <span>{article.content.full}</span>
+          <span dangerouslySetInnerHTML={{__html: article.content.start}}></span>
+          <span dangerouslySetInnerHTML={{__html: article.content.full}}></span>
         </p>
       </div>
       <div className="btnRow">

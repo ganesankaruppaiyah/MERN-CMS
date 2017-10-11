@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Form} from 'semantic-ui-react';
 import classnames from 'classnames';
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import ContentEditor from '../Editors/ContentEditor';
 const validate = (values) => {
   const errors = {
     name: {}
@@ -26,8 +26,6 @@ class BlogPost extends Component {
     label,
     header,
     type,
-    rows,
-    cols,
     meta: {
       touched,
       error
@@ -37,7 +35,7 @@ class BlogPost extends Component {
       error: touched && error
     })}>
       <label>{header}</label>
-      <textarea {...input} rows={rows} cols={cols} placeholder={label} type={type}/> {touched && error && <span className="error">{error.message}</span>}
+      <ContentEditor {...input} placeholder={label} type={type}/> {touched && error && <span className="error">{error.message}</span>}
     </Form.Field>
   )
   render() {
@@ -50,11 +48,11 @@ class BlogPost extends Component {
         <div className="article">
           <Form onSubmit={handleSubmit} loading={loading}>
             <h2 className="blogTitle">
-              <Field name="title" rows="1" header="title" type="text" component={this.renderField} label="Title"/>
+              <Field name="title" header="title" type="text" component={this.renderField} label="Title"/>
             </h2>
-            <Field rows="4" cols="50" name="content.start" className="teaser" type="text" component={this.renderField} label="teaser"/>
-            <Field rows="4" cols="50" name="content.full" className="teaser" type="text" component={this.renderField}/>
-            <button className="greenBtn" type='submit' disabled={pristine || submitting}>Save</button>
+            <Field name="content.start" className="teaser" type="text" component={this.renderField} label="teaser"/>
+            <Field name="content.full" className="teaser" type="text" component={this.renderField}/>
+            <button className="greenBtn" type='submit' >Save</button>
           </Form>
         </div>
       </div>
