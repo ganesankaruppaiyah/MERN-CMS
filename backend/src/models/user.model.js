@@ -1,4 +1,4 @@
-// contact-model.js - A mongoose model
+// user-model.js - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
@@ -6,7 +6,7 @@ require('mongoose-type-email');
 
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
-  const contact = new mongooseClient.Schema({
+  const user = new mongooseClient.Schema({
     name : {
       first: {
         type: String,
@@ -35,5 +35,5 @@ module.exports = function (app) {
     updatedAt: { type: Date, default: Date.now }
   });
 
-  return mongooseClient.model('contact', contact);
+  return mongooseClient.model('user', user);
 };

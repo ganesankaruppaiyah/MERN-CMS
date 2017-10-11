@@ -12,6 +12,8 @@ build
 # misc
 .DS_Store
 npm-debug.log
+*.css
+*.log
 
 #server
 backend/config/default.json

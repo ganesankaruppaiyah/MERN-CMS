@@ -31,11 +31,11 @@ const validate = (values) => {
   }
   return errors;
 }
-class ContactForm extends Component {
-  componentWillReceiveProps = (nextProps) => { // Load Contact Asynchronously
-    const {contact} = nextProps;
-    if (contact._id !== this.props.contact._id) { // Initialize form only once
-      this.props.initialize(contact)
+class UserForm extends Component {
+  componentWillReceiveProps = (nextProps) => { // Load User Asynchronously
+    const {user} = nextProps;
+    if (user._id !== this.props.user._id) { // Initialize form only once
+      this.props.initialize(user)
     }
   }
   renderField = ({
@@ -55,12 +55,12 @@ class ContactForm extends Component {
     </Form.Field>
   )
   render() {
-    const {handleSubmit, pristine, submitting, loading, contact} = this.props;
+    const {handleSubmit, pristine, submitting, loading, user} = this.props;
     return (
         <div className="wrapper">
-          <h1>{contact._id
-              ? 'Edit Contact'
-              : 'Add New Contact'}</h1>
+          <h1>{user._id
+              ? 'Edit User'
+              : 'Add New User'}</h1>
           <Form onSubmit={handleSubmit} loading={loading}>
             <div className="menu">
               <Field name="name.first" className="menu-item" type="text" component={this.renderField} label="First Name"/>
@@ -74,4 +74,4 @@ class ContactForm extends Component {
     )
   }
 }
-export default reduxForm({form: 'contact', validate})(ContactForm);
+export default reduxForm({form: 'user', validate})(UserForm);

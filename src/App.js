@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {NavLink, Route} from 'react-router-dom';
 import {Container} from 'semantic-ui-react';
-import ContactFormPage from './Components/Contacts/Pages/ContactFormPage';
-import ContactListPage from './Components/Contacts/Pages/ContactListPage';
+import UserFormPage from './Components/Users/Pages/UserFormPage';
+import UserListPage from './Components/Users/Pages/UserListPage';
 import HomePage from './HomePage';
 import BlogListPage from './Components/Blog/Pages/BlogListPage';
 import BlogPostPage from './Components/Blog/Pages/BlogPostPage';
@@ -15,11 +15,11 @@ class App extends Component {
           <NavLink className="menu-item" activeClassName="active" exact to="/">
           home
           </NavLink>
-          <NavLink className="menu-item" activeClassName="active" exact to="/contacts">
-            contacts
+          <NavLink className="menu-item" activeClassName="active" exact to="/users">
+            users
           </NavLink>
-          <NavLink className="menu-item" activeClassName="active" exact to="/contacts/new">
-            new contact
+          <NavLink className="menu-item" activeClassName="active" exact to="/users/new">
+            new user
           </NavLink>
           <NavLink className="menu-item" activeClassName="active" exact to="/articles">
             articles
@@ -32,9 +32,9 @@ class App extends Component {
         <Route exact path="/articles" component={BlogListPage}/>
         <Route exact path="/articles/new" component={BlogPostPage}/>
         <Route exact path="/articles/edit/:_id" component={BlogPostPage}/>
-        <Route exact path="/contacts" component={ContactListPage}/>
-        <Route exact path="/contacts/new" component={ContactFormPage}/>
-        <Route exact path="/contacts/edit/:_id" component={ContactFormPage}/>
+        <Route exact path="/users" component={UserListPage}/>
+        <Route exact path="/users/new" component={UserFormPage}/>
+        <Route exact path="/users/edit/:_id" component={UserFormPage}/>
       </Container>
     );
   }

@@ -1,6 +1,6 @@
 const defaultState = {
-  contacts: [],
-  contact: {
+  users: [],
+  user: {
     name: {}
   },
   loading: false,
@@ -8,16 +8,16 @@ const defaultState = {
 }
 export default(state = defaultState, action = {}) => {
   switch (action.type) {
-    case 'FETCH_CONTACTS_FULFILLED':
+    case 'FETCH_USERS_FULFILLED':
       {
         return {
           ...state,
-          contacts: action.payload.data.data,
+          users: action.payload.data.data,
           loading: false,
           errors: {}
         }
       }
-    case 'FETCH_CONTACTS_PENDING':
+    case 'FETCH_USERS_PENDING':
       {
         return {
           ...state,
@@ -25,7 +25,7 @@ export default(state = defaultState, action = {}) => {
           errors: {}
         }
       }
-    case 'FETCH_CONTACTS_REJECTED':
+    case 'FETCH_USERS_REJECTED':
       {
         return {
           ...state,
@@ -35,35 +35,35 @@ export default(state = defaultState, action = {}) => {
           }
         }
       }
-    case 'NEW_CONTACT':
+    case 'NEW_USER':
       {
         return {
           ...state,
-          contact: {
+          user: {
             name: {}
           }
         }
       }
-    case 'SAVE_CONTACT_PENDING':
+    case 'SAVE_USER_PENDING':
       {
         return {
           ...state,
           loading: true
         }
       }
-    case 'SAVE_CONTACT_FULFILLED':
+    case 'SAVE_USER_FULFILLED':
       {
         return {
           ...state,
-          contacts: [
-            ...state.contacts,
+          users: [
+            ...state.users,
             action.payload.data
           ],
           errors: {},
           loading: false
         }
       }
-    case 'SAVE_CONTACT_REJECTED':
+    case 'SAVE_USER_REJECTED':
       {
         const data = action.payload.response.data;
         // convert feathers error formatting to match client-side error formatting
@@ -83,45 +83,45 @@ export default(state = defaultState, action = {}) => {
           loading: false
         }
       }
-    case 'FETCH_CONTACT_PENDING':
+    case 'FETCH_USER_PENDING':
       {
         return {
           ...state,
           loading: true,
-          contact: {
+          user: {
             name: {}
           }
         }
       }
-    case 'FETCH_CONTACT_FULFILLED':
+    case 'FETCH_USER_FULFILLED':
       {
         return {
           ...state,
-          contact: action.payload.data,
+          user: action.payload.data,
           errors: {},
           loading: false
         }
       }
-    case 'UPDATE_CONTACT_PENDING':
+    case 'UPDATE_USER_PENDING':
       {
         return {
           ...state,
           loading: true
         }
       }
-    case 'UPDATE_CONTACT_FULFILLED':
+    case 'UPDATE_USER_FULFILLED':
       {
-        const contact = action.payload.data;
+        const user = action.payload.data;
         return {
           ...state,
-          contacts: state.contacts.map(item => item._id === contact._id
-            ? contact
+          users: state.users.map(item => item._id === user._id
+            ? user
             : item),
           errors: {},
           loading: false
         }
       }
-    case 'UPDATE_CONTACT_REJECTED':
+    case 'UPDATE_USER_REJECTED':
       {
         const data = action.payload.response.data;
         const {"name.first": first, "name.last": last, phone, email} = data.errors;
@@ -140,12 +140,12 @@ export default(state = defaultState, action = {}) => {
           loading: false
         }
       }
-    case 'DELETE_CONTACT_FULFILLED':
+    case 'DELETE_USER_FULFILLED':
       {
         const _id = action.payload.data._id;
         return {
           ...state,
-          contacts: state.contacts.filter(item => item._id !== _id)
+          users: state.users.filter(item => item._id !== _id)
         }
       }
     default:

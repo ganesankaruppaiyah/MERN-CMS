@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import ContactReducer from './ContactReducer';
+import UserReducer from './UserReducer';
 import BlogReducer from './BlogReducer';
 import {reducer as formReducer} from 'redux-form';
 
 const reducers = {
-  contactStore: ContactReducer,
+  userStore: UserReducer,
   blogPostStore: BlogReducer,
   form: formReducer
 }
