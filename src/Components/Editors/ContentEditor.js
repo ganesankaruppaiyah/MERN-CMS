@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import RichTextEditor from 'react-rte';
+import {Editor, EditorState,convertToRaw} from 'draft-js';
+import {stateToHTML} from 'draft-js-export-html';
 
 class ContentEditor extends Component {
   static propTypes = {
@@ -8,22 +10,24 @@ class ContentEditor extends Component {
   };
 
   state = {
-    value: RichTextEditor.createEmptyValue()
+    editorState: EditorState.createEmpty()
   }
 
-  onChange = (value) => {
-    this.setState({value});
+  onChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    this.setState({editorState});
     if (this.props.onChange) {
+      let html = stateToHTML(contentState);
       this.props.onChange(
-        value.toString('html')
+        html
       );
     }
   };
 
   render () {
     return (
-      <RichTextEditor
-        value={this.state.value}
+      <Editor
+        editorState={this.state.editorState}
         onChange={this.onChange}
       />
     );

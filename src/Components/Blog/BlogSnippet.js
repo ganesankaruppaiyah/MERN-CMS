@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+
 export default function BlogSnippet({article, deleteBlogPost}) {
   return (
     <div className="article">
@@ -9,8 +10,7 @@ export default function BlogSnippet({article, deleteBlogPost}) {
       </div>
       <div className="articleBody">
         <p>
-          <span dangerouslySetInnerHTML={{__html: article.content.start}}></span>
-          <span dangerouslySetInnerHTML={{__html: article.content.full}}></span>
+          <span dangerouslySetInnerHTML={{__html: article.content}}></span>
         </p>
       </div>
       <div className="btnRow">

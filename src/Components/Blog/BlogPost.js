@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Form} from 'semantic-ui-react';
@@ -14,6 +15,7 @@ const validate = (values) => {
   }
   return errors;
 }
+
 class BlogPost extends Component {
   componentWillReceiveProps = (nextProps) => { //async load
     const {article} = nextProps;
@@ -47,16 +49,17 @@ class BlogPost extends Component {
             : 'Add New Article'}</h1>
         <div className="article">
           <Form onSubmit={handleSubmit} loading={loading}>
-            <h2 className="blogTitle">
+            <h2 className="articleTitle">
               <Field name="title" header="title" type="text" component={this.renderField} label="Title"/>
             </h2>
-            <Field name="content.start" className="teaser" type="text" component={this.renderField} label="teaser"/>
-            <Field name="content.full" className="teaser" type="text" component={this.renderField}/>
-            <button className="greenBtn" type='submit' >Save</button>
+            <div className="articleBody">
+            <Field name="content" type="text" component={this.renderField} label="teaser"/>
+            </div>
+            <button className="greenBtn" type='submit'>Save</button>
           </Form>
         </div>
       </div>
     )
   }
 }
-export default reduxForm({form: 'article', validate})(BlogPost)
+export default reduxForm({form: 'article'})(BlogPost)
