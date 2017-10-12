@@ -14,28 +14,23 @@
   "dependencies": {
     "axios": "^0.16.0",
     "classnames": "^2.2.5",
-    "create-react-app": "^1.4.1",
     "draft-js": "^0.10.3",
     "draft-js-export-html": "^1.2.0",
-    "ejs": "^2.5.7",
-    "foreman": "^2.0.0",
     "immutable": "^3.8.2",
     "mddir": "^1.1.0",
     "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.1.1",
     "prop-types": "^15.6.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "react-router-dom": "^4.0.0",
-    "react-rte": "^0.15.0",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.0",
     "redux-form": "^6.6.1",
     "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0",
-    "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.67.2",
-    "yarn-run-all": "^3.1.1"
+    "semantic-ui-react": "^0.67.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
