@@ -3,22 +3,6 @@
 This is a work in progress with the aim of creating a _lightweight_ CMS around the MERN stack. I know there are others out there scouring google for resources on the subject, and I know there are a lot of resources out there. I do not intend for this to be a tutorial by any means. There are some really great ones below that I suggest you read and follow. I will try to add more as I come across them and note anything I found to be of importance. Feel free to fork, merge, download, or whatever you want with what is here. I'd be happy to hear if you have any suggestions as I am still trying to wrap my head around some of these technologies.
 
 ---
-## `mernCommentBox`
-
-Here's a thing to be aware of.  If you followed [bryantheastronaut](https://github.com/bryantheastronaut/mernCommentBox)'s tutorial for the comment box, you may wish to incorporate it into your app. In doing so you may notice that after you navigate away from a page with the chatbox using something like [`react-router`](https://reacttraining.com/react-router/), [`axios`](https://github.com/axios/axios) continues it's callback and attempts to `setState()` on an unmounted component (_CommentBox_), resulting in a warning every 2 seconds. to prevent this from happening, we need to `clearInterval()` in our `componentWillUnmount()` method. See below.
-
-```javascript
-//Here's where our app talks to capt. mongoDB of the starship axios
-componentDidMount() {
-  this.loadCommentsFromServer();
-  this.setInterval = setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-}
-//When we go somewhere else, we would like them to please STFU
-componentWillUnmount() {
-  this.setInterval && clearInterval(this.setInterval);
-  this.setInterval = false;
-}
-```
 
 ### `backend/config/mock-default.json`
 
@@ -66,3 +50,4 @@ Thanks.
 - [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
 - [MongoDB docs](https://docs.mongodb.com/?_ga=2.83508949.291315070.1507155837-1405832387.1507052608&_gac=1.117454331.1507256316.Cj0KCQjwsNfOBRCWARIsAGITapaNbkdgoTwA71oRmSmjgoTdOT2tnhCY530ogavTAbhajMTVS8ozfbAaAoDlEALw_wcB)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Draft.js](https://draftjs.org/)
