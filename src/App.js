@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {Component} from 'react';
 import {NavLink, Route} from 'react-router-dom';
 import {Container} from 'semantic-ui-react';
@@ -6,28 +7,16 @@ import UserListPage from './Components/Users/Pages/UserListPage';
 import HomePage from './HomePage';
 import BlogListPage from './Components/Blog/Pages/BlogListPage';
 import BlogPostPage from './Components/Blog/Pages/BlogPostPage';
+import Header from './Components/BuildingBlocks/Header';
+import Footer from './Components/BuildingBlocks/Footer';
+import Left from './Components/BuildingBlocks/Left';
+import Right from './Components/BuildingBlocks/Right';
 
 class App extends Component {
   render() {
-    return (
-      <Container>
-        <div className="menu">
-          <NavLink className="menu-item" activeClassName="active" exact to="/">
-          home
-          </NavLink>
-          <NavLink className="menu-item" activeClassName="active" exact to="/users">
-            users
-          </NavLink>
-          <NavLink className="menu-item" activeClassName="active" exact to="/users/new">
-            new user
-          </NavLink>
-          <NavLink className="menu-item" activeClassName="active" exact to="/articles">
-            articles
-          </NavLink>
-          <NavLink className="menu-item" activeClassName="active" exact to="/articles/new">
-            new article
-          </NavLink>
-        </div>
+    return (<Container>
+        <Header />
+        <div id="wrapper">
         <Route exact path="/" component={HomePage}/>
         <Route exact path="/articles" component={BlogListPage}/>
         <Route exact path="/articles/new" component={BlogPostPage}/>
@@ -35,6 +24,10 @@ class App extends Component {
         <Route exact path="/users" component={UserListPage}/>
         <Route exact path="/users/new" component={UserFormPage}/>
         <Route exact path="/users/edit/:_id" component={UserFormPage}/>
+        </div>
+        <Left />
+        <Right />
+        <Footer />
       </Container>
     );
   }

@@ -6,7 +6,7 @@ $black: rgb(35, 35, 35);
 
 $grey: rgb(105, 105, 105);
 
-$white: (235, 235, 235);
+$white: rgb(235, 235, 235);
 
 $clear: transparent;
 
@@ -68,4 +68,19 @@ $btnshadow: inset 0 1px 0 $grey,
     @return 0 0 5px rgba($color, $alpha),
     2px -2px 5px rgba($color, $alpha),
     (-2px) 2px 5px rgba($color, $alpha);
+}
+$tablet: "1000px";
+$smtablet: "850px";
+$lgmobile: "768px";
+$medmobile: "480px";
+$smmobile: "320px";
+@mixin mq($media) {
+   @media screen and (max-width: $media){
+    @content;
+  }
+}
+@mixin mqmq($max, $min) {
+   @media screen and (max-width: $max) and (min-width: $min){
+    @content;
+  }
 }

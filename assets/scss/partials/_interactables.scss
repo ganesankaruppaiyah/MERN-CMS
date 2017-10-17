@@ -15,6 +15,7 @@
   border: $bdr;
   box-shadow: none;
   border-radius: $bdrds;
+  cursor: pointer;
   @include transition;
 
   &:hover {
@@ -37,7 +38,6 @@
 }
 @mixin txtBtn($clr, $decoration, $weight, $padding, $margin, $fontfamily) {
   color: $clr;
-  letter-spacing: 0.05em;
   text-decoration: $decoration;
   padding: $padding;
   margin: $margin;
@@ -45,46 +45,37 @@
   font-weight: $weight;
 }
 @mixin txtArea($clr) {
-  background-color: transparentize($clr, .85);
-  border: 1px transparentize($clr, .35) solid;
-
-  &:hover {
-    background-color: transparent;
-  }
-
-  &:active {
-    box-shadow: inset 1px 1px 1px 1px transparentize(lighten($clr, 65%), .5);
-    background-color: transparent;
-  }
-
-  &:focus {
-    box-shadow: none;
-    background-color: transparent;
-    outline: none;
-  }
+  background-color: transparentize(lighten($clr, 35%), .98);
+  border: 1px transparentize($clr, .55) solid;
+  box-shadow: 0 0 0px .5px transparentize($clr, .75);
+  border-radius: 4px;
 }
 
 Button,
+Link,
 [role=button],
 a.button,
 button,
-input,
-Link {
+input {
   @include btn(lighten($grey, 15%), solid $grey 1px, $grey, 5px);
-  cursor: pointer;
-  font-size:1em;
+  font-size: 1em;
+
   &[type=submit] {
     @include txtBtn($black, none, 600, .25em, .15em, $f1);
   }
+
   &.boldBtn {
     @include txtBtn($black, none, 600, .25em, .15em, $f1);
   }
+
   &.itaBtn {
     @include txtBtn($black, italic, 400, .25em, .15em, $f1);
   }
+
   &.undBtn {
     @include txtBtn($black, underline, 400, .25em, .15em, $f1);
   }
+
   &.BlocqBtn,
   &.ParaBtn,
   &.boldBtn,
@@ -99,13 +90,27 @@ Link {
   }
 }
 
+.DraftEditor-root {
+  @include txtArea($grey);
+  min-height:2em;
+  width:75%;
+  margin:0 auto;
+}
+
 .editBox,
 [type=text] {
-  @include txtArea(transparentize(lighten($blue, 25%), .35));
-  border: transparentize(lighten($blue, 5%), .05) solid 1px;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  width:75%;
+  margin:0 auto;
 
   .editCtrl {
-    @include txtArea(transparentize(lighten($blue, 5%), .05));
+    @include eqwsm(1,8);
+    @include btn(transparentize($grey, .75), solid $green 1px, $grey, 5px);
+    text-align: center;
+    margin: 0.1em;
+    max-width: 2em;
   }
 }
 

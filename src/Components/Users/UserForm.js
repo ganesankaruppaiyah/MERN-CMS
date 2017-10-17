@@ -62,12 +62,12 @@ class UserForm extends Component {
               ? 'Edit User'
               : 'Add New User'}</h1>
           <Form onSubmit={handleSubmit} loading={loading}>
-            <div className="menu">
+            <div className="row">
               <Field name="name.first" className="menu-item" type="text" component={this.renderField} label="First Name"/>
               <Field name="name.last" className="menu-item" type="text" component={this.renderField} label="Last Name"/>
             </div>
-            <p><Field name="phone" type="text" component={this.renderField} label="Phone"/></p>
-            <p><Field name="email" type="text" component={this.renderField} label="Email"/></p>
+            <div><Field name="phone" type="text" component={this.renderField} label="Phone"/></div>
+            <div><Field name="email" type="text" component={this.renderField} label="Email"/></div>
             <button className="greenBtn" type='submit' disabled={pristine || submitting}>Save</button>
           </Form>
         </div>

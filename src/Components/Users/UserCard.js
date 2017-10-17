@@ -22,6 +22,6 @@ export default function UserCard({user, deleteUser}) {
     </div>
   )
 }
-UserCard.propTypes = {
+UserCard.PropTypes = {
   user: PropTypes.object.isRequired
 }

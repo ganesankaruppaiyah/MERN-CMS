@@ -8,11 +8,11 @@ module.exports = function (app) {
 	const article = new mongooseClient.Schema({
 		title: {
 			type: String,
-			required: true
+			required: false
 		},
 		content: {
 			type: String,
-			required: true
+			required: false
 		},
 		createdAt: {
 			type: Date,

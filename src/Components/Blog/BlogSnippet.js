@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {stateToHTML} from 'draft-js-export-html';
+import {convertFromRaw} from 'draft-js';
 
 export default function BlogSnippet({article, deleteBlogPost}) {
   return (
     <div className="article">
       <div className="articleHeader">
-        <h2 dangerouslySetInnerHTML={{__html: article.title}}></h2>
+        <h2 dangerouslySetInnerHTML={{__html: stateToHTML(convertFromRaw(JSON.parse(article.title)))}}></h2>
       </div>
       <div className="articleBody">
         <p>
-          <span dangerouslySetInnerHTML={{__html: article.content}}></span>
+          <span dangerouslySetInnerHTML={{__html: stateToHTML(convertFromRaw(JSON.parse(article.content)))}}></span>
         </p>
       </div>
       <div className="btnRow">

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Form} from 'semantic-ui-react';
 import classnames from 'classnames';
-import ContentEditor from '../Editors/ContentEditor';
+import PageBuilder from '../Editors/PageBuilder';
 const validate = (values) => {
   const errors = {
     name: {}
@@ -37,7 +37,7 @@ class BlogPost extends Component {
       error: touched && error
     })}>
       <label>{header}</label>
-      <ContentEditor {...input} placeholder={label} type={type}/> {touched && error && <span className="error">{error.message}</span>}
+      <PageBuilder {...input} placeholder={label} type={type}/> {touched && error && <span className="error">{error.message}</span>}
     </Form.Field>
   )
   render() {
