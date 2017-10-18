@@ -1,3 +1,4 @@
+import {convertFromRaw, convertToRaw} from 'draft-js';
 import {client} from './';
 const url = '/articles';
 export function fetchBlogPosts() {
@@ -11,6 +12,11 @@ export function newBlogPost() {
   }
 }
 export function saveBlogPost(article) {
+  article = {
+    ...article,
+    title: JSON.stringify(convertToRaw(article.title)),
+    content: JSON.stringify(convertToRaw(article.content)),
+  }
   return dispatch => {
     return dispatch({
       type: 'SAVE_BLOGPOST',

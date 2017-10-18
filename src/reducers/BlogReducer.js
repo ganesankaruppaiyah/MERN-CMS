@@ -1,7 +1,8 @@
 const defaultState = {
   articles: [],
   article: {
-    name: {}
+    title: {},
+    content: {}
   },
   loading: false,
   errors: {}
@@ -40,7 +41,8 @@ export default(state = defaultState, action = {}) => {
         return {
           ...state,
             article: {
-              name: {}
+              title: {},
+              content: {}
             }
         }
       }
@@ -66,14 +68,11 @@ export default(state = defaultState, action = {}) => {
     case 'SAVE_BLOGPOST_REJECTED':
       {
         const data = action.payload.response.data;
-        const {title, "content.start": start, "content.full": full} = data.errors;
+        const {title, content,} = data.errors;
         const errors = {
           global: data.message,
           title,
-          content: {
-            start,
-            full
-          }
+          content,
         };
         return {
           ...state,
@@ -87,7 +86,8 @@ export default(state = defaultState, action = {}) => {
           ...state,
           loading: true,
           article: {
-            name: {}
+            title: {},
+            content: {}
           }
         }
       }
@@ -122,14 +122,11 @@ export default(state = defaultState, action = {}) => {
     case 'UPDATE_BLOGPOST_REJECTED':
       {
         const data = action.payload.response.data;
-        const {title, "content.start": start, "content.full": full} = data.errors;
+        const {title, content} = data.errors;
         const errors = {
           global: data.message,
-          title: title,
-          content: {
-            start,
-            full
-          }
+          title,
+          content,
         };
         return {
           ...state,

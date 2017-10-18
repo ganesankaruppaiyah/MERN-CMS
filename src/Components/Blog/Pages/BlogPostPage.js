@@ -2,28 +2,34 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router';
 import {SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
-import {newBlogPost, saveBlogPost, fetchBlogPost, updateBlogPost} from '../../../actions/BlogActions';
+import {newBlogPost, saveBlogPost, fetchBlogPost, updateBlogPost,} from '../../../actions/BlogActions';
 import BlogPost from '../BlogPost';
-
+import {EditorState,convertFromRaw} from 'draft-js';
 class BlogPostPage extends Component {
-    state = {
-      redirect: false
-    }
+  state = {
+    redirect: false
+  }
   componentDidMount = () => {
     const {_id} = this.props.match.params;
     if (_id) {
+      
       this.props.fetchBlogPost(_id)
     } else {
       this.props.newBlogPost();
     }
+    (rawContent) => {
+      if (rawContent) {
+        this.setState({
+          editorState: EditorState.createWithContent(convertFromRaw(rawContent))
+        })
+      } else {
+        this.setState({editorState: EditorState.createEmpty()});
+      }
+    }
   }
   submit = (article) => {
     if (!article._id) {
-      return this.props.saveBlogPost(article).then(
-        response => this.setState({
-          redirect: true
-        })
-      ).catch(err => {
+      return this.props.saveBlogPost(article).then(response => this.setState({redirect: true})).catch(err => {
         throw new SubmissionError(this.props.errors)
       })
     } else {
@@ -35,14 +41,14 @@ class BlogPostPage extends Component {
   render() {
     return (
       <div className="wrapper">
-      {this.state.redirect ?
-        <Redirect to="/articles"/> :
-        <BlogPost article={this.props.article} loading={this.props.loading} onSubmit={this.submit}/>}
+        {this.state.redirect
+          ? <Redirect to="/articles"/>
+          : <BlogPost article={this.props.article} loading={this.props.loading} onSubmit={this.submit}/>}
       </div>
     )
   }
 }
 function mapStateToProps(state) {
-  return {article: state.blogPostStore.article, errors: state.blogPostStore.errors}
+  return {article: state.blogPostStore.article, errors: state.blogPostStore.errors,}
 }
-export default connect(mapStateToProps, {newBlogPost, saveBlogPost, fetchBlogPost, updateBlogPost})(BlogPostPage);
+export default connect(mapStateToProps, {newBlogPost, saveBlogPost, fetchBlogPost, updateBlogPost,})(BlogPostPage);

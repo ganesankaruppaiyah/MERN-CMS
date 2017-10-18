@@ -6,14 +6,8 @@
 module.exports = function (app) {
 	const mongooseClient = app.get('mongooseClient');
 	const article = new mongooseClient.Schema({
-		title: {
-			type: String,
-			required: false
-		},
-		content: {
-			type: String,
-			required: false
-		},
+		title: {},
+		content: {},
 		createdAt: {
 			type: Date,
 			default: Date.now
