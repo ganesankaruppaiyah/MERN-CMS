@@ -5,10 +5,12 @@ import {stateToHTML} from 'draft-js-export-html';
 import {convertFromRaw} from 'draft-js';
 
 export default function BlogSnippet({article, deleteBlogPost}) {
+  console.log(article.title);
+  console.log(article.content);
   return (
     <div className="article">
       <div className="articleHeader">
-        <h2 dangerouslySetInnerHTML={{__html: stateToHTML(convertFromRaw(JSON.parse(article.title)))}}></h2>
+        <h2>{article.title}</h2>
       </div>
       <div className="articleBody">
         <p>

@@ -50,7 +50,7 @@ class BlogPost extends Component {
         <div className="article">
           <Form onSubmit={handleSubmit} loading={loading}>
             <h2 className="articleTitle">
-              <Field name="title" header="title" type="text" component={this.renderField} label="Title"/>
+              <Field name="title" type="text" component="input" />
             </h2>
             <div className="articleBody">
             <Field name="content" type="text" component={this.renderField} label="teaser"/>

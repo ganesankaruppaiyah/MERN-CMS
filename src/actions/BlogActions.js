@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {convertFromRaw, convertToRaw} from 'draft-js';
 import {client} from './';
 const url = '/articles';
@@ -14,7 +15,7 @@ export function newBlogPost() {
 export function saveBlogPost(article) {
   article = {
     ...article,
-    title: JSON.stringify(convertToRaw(article.title)),
+    title: article.title,
     content: JSON.stringify(convertToRaw(article.content)),
   }
   return dispatch => {
@@ -25,10 +26,15 @@ export function saveBlogPost(article) {
   }
 }
 export function fetchBlogPost(_id) {
+  let article = {
+    ..._id,
+    title: _id.title,
+    content: _id.content,
+  }
   return dispatch => {
     return dispatch({
       type: 'FETCH_BLOGPOST',
-      payload: client.get(`${url}/${_id}`)
+      payload: client.get(`${url}/${_id}`, article)
     })
   }
 }

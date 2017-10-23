@@ -12,7 +12,7 @@ class BlogPostPage extends Component {
   componentDidMount = () => {
     const {_id} = this.props.match.params;
     if (_id) {
-      
+
       this.props.fetchBlogPost(_id)
     } else {
       this.props.newBlogPost();

@@ -1,11 +1,16 @@
+/* eslint-disable */
+import {EditorState} from 'draft-js';
+
 const defaultState = {
   articles: [],
   article: {
-    title: {},
-    content: {}
+    title: {
+      editorState: EditorState.createEmpty()
+    },
+    content: {
+      editorState: EditorState.createEmpty()
+    },
   },
-  loading: false,
-  errors: {}
 }
 export default(state = defaultState, action = {}) => {
   switch (action.type) {
@@ -146,3 +151,10 @@ export default(state = defaultState, action = {}) => {
       return state;
   }
 }
+// SELECTORS
+export const getBlogPost = state => state.article;
+// ACTION CREATORS
+export const setBlogPost = value => ({
+  type: SET_BLOGPOST,
+  value,
+});
